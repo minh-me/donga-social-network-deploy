@@ -7,7 +7,7 @@ html(lang="en")
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Social network DongA
+    title DongA Social network
     //- Short cut icon
     link(rel='shortcut icon', href='/assets/img/shuttle.svg', type='image/x-icon')
     //- Bootstrap v5
@@ -26,7 +26,7 @@ html(lang="en")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css")
      //- css
     link(rel='stylesheet', href='/assets/css/style.css')
-  body 
+  body
     script.
       var userLoggedIn = !{userLoggedInJs};
 
@@ -40,18 +40,18 @@ html(lang="en")
         //- Main
         main.col-11.col-md-9.col-lg-7
           .main_container.boder
-            div.title_container 
+            div.title_container
               span #{pageTitle}
               block headerButton
-              
+
             block content
         //- News
         .d-none.col-lg-3.d-lg-block.sidebarRight
           if sidebarChat
             block sidebarChat
-          else 
-            include ../sidebarRight.pug 
-    
+          else
+            include ../sidebarRight.pug
+
     //- script alertify
     script(src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js")
     //- Copper js
@@ -59,15 +59,15 @@ html(lang="en")
     //- script bootstrap
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')
     //- script sweetalert2
-    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js") 
+    script(src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js")
     //- socket
-    script(src="/socket.io/socket.io.js") 
-    
+    script(src="/socket.io/socket.io.js")
+
     //- script
     script(src="/js/utils/errorResponse.js")
     script(src="/js/mainConfig.js")
-    script(src="/js/http.js") 
-    script(src="/js/sidebar.js") 
-    script(src="/js/sidebarRight.js") 
-    script(src="/js/clientSocket.js") 
+    script(src="/js/http.js")
+    script(src="/js/sidebar.js")
+    script(src="/js/sidebarRight.js")
+    script(src="/js/clientSocket.js")
     block scripts

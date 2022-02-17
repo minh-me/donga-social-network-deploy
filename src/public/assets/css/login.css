@@ -366,7 +366,7 @@ label {
   margin: 8px;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .form-box {
     height: 100vh;
   }

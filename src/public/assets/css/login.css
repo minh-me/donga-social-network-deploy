@@ -365,3 +365,12 @@ label {
   color: rgb(2, 2, 2);
   margin: 8px;
 }
+
+@media screen and (max-width: 600px) {
+  .form-box {
+    height: 100vh;
+  }
+  .social-icons {
+    display: none;
+  }
+}

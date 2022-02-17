@@ -1,0 +1,36 @@
+.col-12.grid-margin.stretch-card
+  .card
+    .card-body
+      h4.card-title Basic form elements
+      p.card-description Basic form elements
+      form.forms-sample
+        .form-group
+          label(for='exampleInputName1') Name
+          input#exampleInputName1.form-control(type='text', placeholder='Name')
+        .form-group
+          label(for='exampleInputEmail3') Email address
+          input#exampleInputEmail3.form-control(type='email', placeholder='Email')
+        .form-group
+          label(for='exampleInputPassword4') Password
+          input#exampleInputPassword4.form-control(type='password', placeholder='Password')
+        .form-group
+          label(for='exampleSelectGender') Gender
+          select#exampleSelectGender.form-control
+            option Male
+            option Female
+        .form-group
+          label File upload
+          input.file-upload-default(type='file', name='img[]')
+          .input-group.col-xs-12
+            input.form-control.file-upload-info(type='text', disabled='', placeholder='Upload Image')
+            span.input-group-append
+              button.file-upload-browse.btn.btn-primary(type='button')
+                | Upload
+        .form-group
+          label(for='exampleInputCity1') City
+          input#exampleInputCity1.form-control(type='text', placeholder='Location')
+        .form-group
+          label(for='exampleTextarea1') Textarea
+          textarea#exampleTextarea1.form-control(rows='4')
+        button.btn.btn-primary.mr-2(type='submit') Submit
+        button.btn.btn-dark Cancel

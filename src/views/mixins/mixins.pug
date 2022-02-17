@@ -1,0 +1,397 @@
+mixin createPostForm(user)
+  .post_form-container
+    .user_image-container
+      img(src=`${user.profilePic}`, alt="User's profile picture")
+    .textarea_container
+      textarea#buttonPostFormModal.text-primary(data-bs-toggle="modal" data-bs-target="#createPostFormModal", placeholder="What's happending?")
+      .buttons_container
+        //- user input: remove disabled
+        button.buttonPostForm(disabled='') Post
+
+mixin createPostFormModal()
+  #createPostFormModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.card-title.text-center.post-form-modal-title Create post
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          .post_form-container.border-0.d-block.p-0
+            .post-form__header
+              .user_image-container.d-flex
+                img(src="/assets/images/avatar-default.png", alt="User's profile picture")
+              .user-post__container 
+                span.displayName Chìu Cắm Minh 
+                span.username @minhch 
+
+            .textarea_container.mt-2.pt-2
+              textarea#postTextarea(placeholder="What's happending?", autofocus)
+
+              .postImage-preview__container 
+                  //- img(src="/assets/images/bg.jpg", alt="")
+
+              .buttons_container
+                //- user input: remove disabled
+                label(for="postImage")
+                  i.fas.fa-image
+                input.d-none(type="file", id="postImage", name="postImage") 
+              
+        //- Modal footer
+        .modal-footer
+          button#submitCreatePost.btn.btn-success.btn-block.w-100(disabled) Post
+
+mixin createPostImageShowModal()
+  #createPostImageShowModal.modal.fade.bd-example-modal-lg(tabindex="-1", role="dialog")
+    .modal-dialog.modal-lg
+      .modal-content.bg-grey-dim
+        //- Modal body
+        .modal-body
+          .postImage-preview__container 
+              img(src="/assets/images/bg.jpg", alt="")
+
+mixin createReplyPostModal()
+  #replyPostModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.card-title.text-center.post-form-modal-title Reply
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body.p-0
+          .post-container
+
+          .post_form-container.border-0
+            .post-form__header
+              .user_image-container.d-flex
+                img(src="/assets/images/avatar-default.png", alt="User's profile picture")
+
+            .textarea_container
+              input#replyInput(placeholder="Reply ...", autofocus)
+
+        //- Modal footer
+        .modal-footer
+          button#submitReplyPost.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal', disabled) Reply
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+       
+mixin createCoverPhotoUploadModal()
+  #coverPhotoUploadModal.modal.fade(tabindex='-1', aria-labelledby='coverPhotoModalLabel', aria-hidden='true')
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        .modal-header
+          p.modal-title.text-primary Thay đổi ảnh bìa?
+          button.btn-close(type='button', data-bs-dismiss='modal')
+        .modal-body
+          input#coverPhoto(type="file", name="filePhoto")
+        
+          .cover-preview__container 
+                
+        .modal-footer
+          button#submitCoverPhoto.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createImageUploadModal()
+  #avatarUploadModal.modal.fade(tabindex='-1', aria-labelledby='imageUploadModalLabel', aria-hidden='true')
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        .modal-header
+          p.modal-title.text-primary Thay đổi ảnh đại diện?
+          button.btn-close(type='button', data-bs-dismiss='modal')
+        .modal-body
+          input#avatarPhoto(type="file", name="avatarPhoto")
+      
+          .avatar-preview__container 
+                
+        .modal-footer
+          button#submitAvatarPhoto.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createPinnedPostModal()
+  #pinPostModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Ghim bài viết này?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bài viết này sẽ xuất hiện đầu tiên trong bài viết của bạn.
+        //- Modal footer
+        .modal-footer
+          button#submitPinPost.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createUnpinPostModal()
+  #unpinPostModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Bỏ ghim bài viết?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bài viết đã ghim sẽ được bỏ.
+        //- Modal footer
+        .modal-footer
+          button#submitUnpinPost.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createDeletePostModal()
+  #deletePostModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa bài viết?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bạn có chắc chắn muốn xóa bài viết này không?
+        //- Modal footer
+        .modal-footer
+          button#submitDeletePost.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin retweetPostModal()
+  #retweetPostModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa bài viết?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bạn có chắc chắn muốn xóa bài viết này không?
+        //- Modal footer
+        .modal-footer
+          button#submitReweetPost.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createButtonFollow(user, isFollowing)
+  -var text = isFollowing ? "Following" : "Follow"
+  -var buttonClass = isFollowing ? "follow-button following" : "follow-button"
+  button(class=buttonClass, data-user=user.id)= text
+
+mixin createTab(name, href, isSelected)
+  -var className = isSelected ? "tab active" : "tab"
+  a(href= href, class= className) 
+    span= name
+
+mixin createDeleteUserModal()
+  #deleteUserModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa tài khoản?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bạn có chắc chắn muốn xóa tài khoản này?
+        //- Modal footer
+        .modal-footer
+          button#submitDeleteUser.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createUpdateUserModal()
+  #updateUserModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.text-info.card-title Cập nhập người dùng?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          .col-12.grid-margin.stretch-card
+            .card
+              .card-body
+                form.forms-sample
+                  .form-group
+                    label(for='exampleInputName1') Name
+                    input#exampleInputName1.form-control(type='text', placeholder='Name')
+                  .form-group
+                    label(for='exampleInputEmail3') Email address
+                    input#exampleInputEmail3.form-control(type='email', placeholder='Email')
+
+        //- Modal footer
+        .modal-footer
+          button#submitUpdateUser.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createNewUserModal()
+  #createNewUserModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.text-info.card-title Cập nhập người dùng?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          .col-12.grid-margin.stretch-card
+            .card
+              .card-body
+                form.forms-sample
+                  .form-group
+                    label(for='exampleInputName1') Name
+                    input#exampleInputName1.form-control(type='text', placeholder='Name')
+                  .form-group
+                    label(for='exampleInputEmail3') Email address
+                    input#exampleInputEmail3.form-control(type='email', placeholder='Email')
+
+        //- Modal footer
+        .modal-footer
+          button#submitCreateNewUser.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Tạo mới
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createDeleteManagerModal()
+  #deleteManagerModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa tài khoản?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bạn có chắc chắn muốn xóa tài khoản này?
+        //- Modal footer
+        .modal-footer
+          button#submitDeleteManager.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+          
+mixin createUpdateManagerModal()
+  #createManagerModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.text-info.card-title Cập nhập người dùng?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          .col-12.grid-margin.stretch-card
+            .card
+              .card-body
+                form.forms-sample
+                  .form-group
+                    label(for='exampleInputName1') Name
+                    input#exampleInputName1.form-control(type='text', placeholder='Name')
+                  .form-group
+                    label(for='exampleInputEmail3') Email address
+                    input#exampleInputEmail3.form-control(type='email', placeholder='Email')
+
+        //- Modal footer
+        .modal-footer
+          button#submitCreateManager.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin createResetPasswordModal()
+  #resetPasswordModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa tài khoản?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Bạn có chắc chắn muốn xóa tài khoản này?
+        //- Modal footer
+        .modal-footer
+          button#submitResetPassword.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+mixin verifyEmailModal()
+  #verifyEmailModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Active tài khoản?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Active tài khoản này?
+        //- Modal footer
+        .modal-footer
+          button#submitVerifyEmail.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Đồng ý
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') Để sau 
+
+mixin createUserModal()
+  +createDeleteUserModal()
+  +createUpdateUserModal()
+  +createDeleteManagerModal()
+  +createUpdateManagerModal()
+  +createNewUserModal()
+  +createResetPasswordModal()
+  +verifyEmailModal
+
+mixin createPostModal()
+  +createDeletePostModal()
+  +createPinnedPostModal()
+  +createUnpinPostModal()
+  +retweetPostModal()
+  +createPostFormModal()
+  +createPostImageShowModal()
+  +createReplyPostModal()
+
+mixin createChatImage(chatData, userLoggedIn)
+  if !chatData 
+    return 
+  - let i = 0
+  - let maxImagesToShow = 3
+  - let remainingUsers = chatData.users.length - maxImagesToShow 
+  - remainingUsers--
+  .chat-images__container 
+    if remainingUsers > 0 
+      .userCount 
+        span +#{remainingUsers}
+
+    each user in chatData.users 
+      if chatData.users.length > 1 && user.id === userLoggedIn.id 
+        - continue
+      else if i >= maxImagesToShow 
+        - break
+
+      img(src=user.profilePic, alt="User's profile picture", title=user.firstName)
+      - i++
+
+mixin createChatNameModal(chat)
+  #createChatNameModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          h3.modal-title.text-info.card-title Thay đổi tên trò chuyện?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          input#chatNameInput(type="text", value=chat.chatName, name="chatName")
+        //- Modal footer
+        .modal-footer
+          button#submitChatNameButton.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Yes
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') No
+
+
+mixin createDeleteNotificationModal()
+  #deleteNotificationModal.modal.fade
+    .modal-dialog
+      .modal-content.bg-grey-dim
+        //- Modal Header
+        .modal-header
+          p.modal-title.text-primary Xóa thông báo?
+          button.button-close(type='button', data-bs-dismiss='modal') &times;
+        //- Modal body
+        .modal-body
+          span Xóa thông báo này khỏi mục thông báo của bạn?
+        //- Modal footer
+        .modal-footer
+          button#submitDeleteNotification.btn.btn-success.btn-sm(type='button', data-bs-dismiss='modal') Có
+          button.btn.btn-danger.btn-sm(type='button', data-bs-dismiss='modal') Không

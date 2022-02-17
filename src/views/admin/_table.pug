@@ -1,0 +1,71 @@
+.col-12.grid-margin
+  .card
+    .card-body
+      h4.card-title.d-flex.justify-content-between Tài Khoản
+        button.btn-create-user.btn.btn-sm.btn-primary.mx-1(data-bs-toggle="modal", data-bs-target="#createNewUserModal") Tạo mới
+      .table-responsive
+        table.table.users_table
+          thead
+            tr
+              th
+                input(type="checkbox")
+              th Avatar
+              th Họ Tên
+              th Tên
+              th Username
+              th Email
+              th Loại Email
+              th Trạng Thái
+              th Followers
+              th Following
+              th Role
+              th Ngày Tạo
+              th Actions
+          tbody.users-tbody
+          tfoot
+            tr
+              td(colspan="13")
+
+.col-12.grid-margin
+  .card
+    .card-body
+      h4.card-title Bài Viết
+      .table-responsive
+        table.table.posts_table
+          thead
+            tr
+              th
+                input(type="checkbox")
+              th Posted By
+              th Nội dung
+              th Lượt Like
+              th Lượt Share
+              th Ngày đăng
+              th Actions
+          tbody.posts-tbody
+          tfoot
+            tr
+              td(colspan="13")
+
+.col-12.grid-margin
+  .card
+    .card-body
+      h4.card-title.d-flex.justify-content-between Admin
+      .table-responsive
+        table.table.managers_table
+          thead
+            tr
+              th
+                input(type="checkbox")
+              th Avatar
+              th Họ Tên
+              th Tên
+              th Username
+              th Email
+              th Role
+              th Ngày Tạo
+              th Actions
+          tbody.managers-tbody
+          tfoot
+            tr
+              td(colspan="13")

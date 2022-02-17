@@ -1,0 +1,209 @@
+1. server
+2. config
+3. validation
+4. routes
+5. controller
+6. services
+7. model
+
+# Package
++ dependencies:
+  express
+  mongoose
+  cookie-parser
+  cors
+  dotenv
+  express-mongo-sanitize
+  express-rate-limit
+  helmet
+  hpp
+  http-errors
+  jsonwebtoken
+  xss-clean
+  yup
+  bcryptjs
+  @babel/runtime
+
++ devDependencies:
+  morgan
+  eslint
+  eslint-config-airbnb-base
+  eslint-config-prettier
+  eslint-plugin-import
+  eslint-plugin-prettier
+  husky
+  lint-staged
+  nodemon
+  prettier
+  winston
+  @babel/cli
+  @babel/core
+  @babel/node
+  @babel/plugin-transform-runtime
+  @babel/preset-env
+
+# Start
+* 1. Init        ===> done
+      # set up eslint
+      + eslint
+      + eslint-config-airbnb-base
+      + eslint-config-prettier
+      + eslint-plugin-import
+      + eslint-plugin-prettier
+      + husky
+      + lint-staged
+
+      # config babel
+      + @babel/cli
+      + @babel/core
+      + @babel/node
+      + @babel/plugin-transform-runtime
+      + @babel/preset-env
+      + @babel/runtime
+* 2. Server       ===> done
+* 3. Config       ===> done
+      + config.js     ===> done
+      + db.js         ===> done
+      + logger.js     ===> done
+      + rateLimit.js  ===> done
+      + passport.js   ===> done
+      + roles.js      ===> done
+* 4. Middlewares
+      + error.js      ===> done
+* 5. Routes
+      + _index.js
+* 6. Validations
+      +
+
+
+
+
+
+# Todo
+- Design login page:
+- Design notfound page:
+- Reset Password:
+- Show more:
+- Get top Followers:
+- Update content Image:
+
+
+
+
+
+
+
+
+
+
+# Todo 2:
+- Admin: Paging, Sorting, Searching, Notification Counting, Message Counting
+- Messages: Read more old messages, Send pictures, Send files, Real-time chat list, Show more chat list
+- Home page: Reply to post
+- Notifications: Show more
+- Deployment: Heroku
+
+
+
+# Feature
+- Login Page:
+      + Register
+      + Login
+            + Local
+            + Facebook
+            + Google
+      + Verify email
+      + Forgot/Reset password
+
+- Home Page:
+      + Load post by createdAt
+      + Create new post(content/image)
+      + Delete post
+      + Pin post
+      + Comment
+      + Like
+      + Retweet
+      + View Image
+      + Show more
+
+- Search Page:
+      + User
+            + Load users
+            + Search user
+            + Show more
+      + Post
+            + Load posts
+            + Search post
+            + Show more
+
+- Notifications Page:
+      + Show notification number
+      + Load notifications
+            + Like
+            + Retweet
+            + Follow
+            + Mark as read
+            + Mark all as read
+
+- Inbox Page:
+      + Show message number
+      + Show chat list
+      + Mark as read
+      + Search/Create group chat
+      + Message page
+            + Show message name
+            + Update message name
+            + Show message
+            + Chat content/image
+
+- Profile Page:
+      + Update cover photo
+      + Update profile picture
+      + Show Following/Followers
+      + Tab posts
+            + Show owner's posts
+            + Show pinned posts to the top
+            + Delete post
+            + Pin post
+            + Comment
+            + Like
+            + Retweet
+            + View Image
+            + Show more
+      + Tab replies
+            + Show comments
+
+- Follow Page:
+      + Show following/followers
+
+- Real time:
+      + Like
+      + Retweet
+      + Comment
+      + Chat
+
+      + Show toast messages
+
+- Admin page:
+      + Show models with the number of collections
+      + Table account
+            + Create new user
+            + Grant permission
+            + Delete user
+            + Reset password
+            + Active account
+            + Block
+            + Paginations
+
+      + Table posts
+            + Delete post
+            + Paginations
+
+      + Table Admin
+            + Update permission
+            + Delete post
+            + Paginations
+
+- Sidebar right:
+      + Most Featured Posts
+      + User with the most followers

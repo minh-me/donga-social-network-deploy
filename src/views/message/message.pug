@@ -1,0 +1,58 @@
+extends ../layouts/main-layout 
+
+block content
+  if errors.length > 0
+    each error in errors
+      span.errorMessage= error
+  else 
+    script.
+      var chatId = '!{chat._id}'
+
+    .chat__container  
+      .chat-header 
+        .chat-info  
+          +createChatImage(chat, userLoggedIn)
+          span#chatName(data-bs-toggle="modal", data-bs-target="#createChatNameModal", data-id=chat.id)=chat.chatName
+        .chat-icon__container          
+          a(href='')
+            i.fas.fa-phone-alt
+          a(href='')
+            i.fas.fa-video
+          a(href='')
+            i.fas.fa-info-circle
+
+      .main-content__container 
+        .message__container
+          //- Spinners
+          .lds-message.lds-roller
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+          .messages.hidden
+            //- Typing
+            .dot-typing__container.hidden
+              .dot-typing
+
+          .footer 
+            textarea#inputTextBox(name="messageInput", placeholder="Type a message...")
+            button.send-message__button(disabled)
+              i.fas.fa-paper-plane
+            .button-actions__container
+              button 
+                label(for="messageImage") 
+                  i.fas.fa-image
+                input#messageImage.d-none(type="file", name="messageImage")
+      +createChatNameModal(chat)
+
+block sidebarChat 
+  include ./sidebar-chat
+
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/inbox.js") 
+  script(src="/js/message.js") 

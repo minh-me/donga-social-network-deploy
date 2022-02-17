@@ -1,0 +1,27 @@
+.col.align-center.flex-col.sign-up
+  if errors.length > 0
+    .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+      span=errors
+      button.btn-sm.btn-close.button-delete-alert(type='button', data-bs-dismiss='alert', aria-label='Close')
+
+  .form-wrapper.align-center
+    form.form.sign-up(action="/auth/sign-up", method="POST")
+      .input-group
+        i.bx.bxs-user
+        input(type='text', placeholder='Tên đầy đủ', name="fullName")
+      .input-group
+        i.bx.bx-mail-send
+        input(type='email', placeholder='Email', name="email")
+      .input-group
+        i.bx.bxs-lock-alt
+        input(type='password', placeholder='Mật khẩu', name="password")
+      button Sign up
+      p
+        span Already have an account?
+        b#sign-in Sign in here
+  .form-wrapper
+    .social-list.align-center.sign-up
+      .align-center.facebook-bg
+        i.bx.bxl-facebook
+      .align-center.google-bg
+        i.bx.bxl-google

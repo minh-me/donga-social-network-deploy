@@ -1,0 +1,65 @@
+extends ./layouts/main-layout 
+block content
+  script.
+    var profileUserId= '!{profileUser._id}';
+    var selectedTab= '!{selectedTab}';
+
+  .lds-profile
+    .dot-spin
+  .profile-wrapper.hidden
+    .profile__header-container
+      .cover-photo__section
+        .cover-photo__container
+          if profileUser.coverPhoto
+            img(src=`${profileUser.coverPhoto}`, alt="")
+          if userLoggedIn.id === profileUser.id 
+            button.cover-photo__button(data-bs-toggle="modal", data-bs-target="#coverPhotoUploadModal")
+              i.fas.fa-camera
+
+        .user__image-container
+          img(src=`${profileUser.profilePic}`, alt="User profile image")
+          if userLoggedIn.id === profileUser.id 
+            button.profile__picture-button(data-bs-toggle="modal", data-bs-target="#avatarUploadModal")
+              i.fas.fa-camera
+
+      .profile__buttons-container 
+        if profileUser.id !== userLoggedIn.id 
+          a.profile__button(href=`/messages/${profileUser.id}`) 
+            i.fas.fa-envelope
+          
+          if userLoggedIn.following && userLoggedIn.following.includes(profileUser.id)
+            +createButtonFollow(profileUser, true)
+          else 
+            +createButtonFollow(profileUser, false)
+          
+
+      .user__details-container 
+        span.displayName= profileUser.fullName
+        span.username= `@${profileUser.username}`
+        span.description= profileUser.description
+
+        .followers-container 
+          a(href=`/profile/${profileUser.username}/following`) 
+            span#followingValue.value= profileUser.following && profileUser.following.length
+            span Following
+          a(href=`/profile/${profileUser.username}/followers`) 
+            span#followersValue.value= profileUser.followers && profileUser.followers.length
+            span Followers
+    
+    .tabs-container 
+      +createTab('Posts', `/profile/${profileUser.username}`, selectedTab != 'replies')
+      +createTab('Replies', `/profile/${profileUser.username}/replies`, selectedTab == 'replies')
+
+    .posts_container 
+
+  +createImageUploadModal()
+  +createCoverPhotoUploadModal()
+  +createPostModal()
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/uploadPhoto.js") 
+  script(src="/js/handlePost.js") 
+  script(src="/js/follow.js") 
+  script(src="/js/loadPostsProfile.js") 
+  script(src="/js/selectTop.js")
+  

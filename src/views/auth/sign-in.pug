@@ -1,0 +1,27 @@
+.col.align-center.flex-col.sign-in
+  if errors.length > 0
+    .alert.alert-danger.alert-dismissible.fade.show(role='alert')
+      span=errors
+      button.btn-sm.btn-close.button-delete-alert(type='button', data-bs-dismiss='alert', aria-label='Close')
+
+  .form-wrapper.align-center
+    form.form.sign-in(action="/auth/admin/sign_in", method="POST")
+      .input-group
+        i.bx.bxs-user
+        input(type='text', placeholder='Email' name="email")
+      .input-group
+        i.bx.bxs-lock-alt
+        input(type='password', placeholder='Password' name="password")
+      button Sign in
+      p
+        b Forgot password?
+      p
+        span  Don&apos;t have an account? 
+        b#sign-up Sign up here
+        a.d-block(href="/") Account
+  .form-wrapper
+    .social-list.align-center.sign-in
+      .align-center.facebook-bg
+        i.bx.bxl-facebook
+      .align-center.google-bg
+        i.bx.bxl-google

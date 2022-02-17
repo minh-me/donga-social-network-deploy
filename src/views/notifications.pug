@@ -1,0 +1,14 @@
+extends ./layouts/main-layout 
+
+block headerButton 
+  span#markNotificationsAsRead
+    .fas.fa-check-double
+
+block content
+  .notifications-container 
+    .notifications-list
+
+  +createDeleteNotificationModal()
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/notification.js") 

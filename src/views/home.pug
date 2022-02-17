@@ -1,0 +1,21 @@
+extends ./layouts/main-layout 
+block content
+  if success.length 
+    +alertifySuccess(success)
+    
+  .posts_container
+    +createPostForm(userLoggedIn)
+
+    .lds__post-home
+      .dot-spin
+    .posts.hidden
+
+    +createPostModal()
+      //- loadPosts
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/createPost.js")
+  script(src="/js/follow.js")
+  script(src="/js/loadPostsHome.js")
+  script(src="/js/handlePost.js")
+  script(src="/js/selectTop.js")

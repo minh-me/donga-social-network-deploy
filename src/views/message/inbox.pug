@@ -1,0 +1,16 @@
+extends ../layouts/main-layout 
+
+block headerButton 
+  a.button__new-chat(href="/messages/new") 
+    i.far.fa-plus-square
+
+block content
+  .chats-container
+    .chat-list 
+
+
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/follow.js") 
+  script(src="/js/inbox.js") 
+  script(src="/js/selectTop.js")

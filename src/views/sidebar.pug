@@ -1,0 +1,54 @@
+.sidebar
+  //- Logo
+  .logo
+    span ĐÔNG Á
+
+    //- Menu
+  .menu
+    ul.menu-list
+      //- Home
+      li.menu-item(class=selectedPage == 'home' && 'active')
+        a(href='/')
+          i.fas.fa-home
+          span Home
+      //- Search
+      li.menu-item(class=selectedPage == 'search' && 'active')
+        a(href='/search')
+          i.fas.fa-search
+          span Search
+      //- Notifications
+      li.menu-item(class=selectedPage == 'notification' && 'active')
+        a(href='/notifications')
+          i.fas.fa-bell
+          span Thông báo
+          span.badge.notification-badge 3
+      //- Message
+      li.menu-item(class=selectedPage == 'messages' && 'active')
+        a(href='/messages')
+          i.far.fa-envelope
+          span Nhắn tin
+          span.badge.message-badge
+      //- Profile
+      li.menu-item.menu-item(class=selectedPage == 'profile' && 'active')
+        a(href='/profile')
+          i.fas.fa-user
+          span Profile
+      if userLoggedIn.role === 'admin'
+        li.menu-item.menu-item(class=selectedPage == 'admin' && 'active')
+          a(href='/admin', target="_blank")
+            i.fas.fa-biohazard(style="color: #f53e44")
+            span Admin
+      //- Logout
+      li.menu-item.logout
+        a(href='/auth/logout')
+          i.fas.fa-sign-out-alt
+          span Đăng xuất
+
+    //- Account menu
+  .account-menu
+    //- avatar
+    .avatar
+      span.dot.activate
+      img(src=userLoggedIn.profilePic, alt='avatar')
+    //- Modal
+    //- Actions

@@ -1,0 +1,42 @@
+nav#sidebar.sidebar.sidebar-offcanvas
+  .sidebar-brand-wrapper.d-none.d-lg-flex.align-items-center.justify-content-center.fixed-top
+    a(href='/admin').logo
+      |ĐÔNG Á
+
+  ul.nav
+    li.nav-item.profile
+      .profile-desc
+        .profile-pic
+          .count-indicator
+            img.img-xs.rounded-circle(src=userLoggedIn.profilePic, alt='')
+            span.count.bg-success
+          .profile-name
+            h5.mb-0.font-weight-normal=userLoggedIn.fullName
+            span=userLoggedIn.role
+    li.nav-item.nav-category
+      span.nav-link NAVIGATION
+    li.nav-item.menu-items
+      a.nav-link(href='/admin')
+        span.menu-icon
+          i.fas.fa-search 
+        span.menu-title Dashboard
+    li.nav-item.menu-items
+      a.nav-link(href='/admin')
+        span.menu-icon
+          i.fas.fa-user
+        span.menu-title Form Elements
+    li.nav-item.menu-items
+      a.nav-link(href='/admin')
+        span.menu-icon
+          i.far.fa-envelope
+        span.menu-title Tables
+    li.nav-item.menu-items
+      a.nav-link(href='/')
+        span.menu-icon
+          i.fas.fa-biohazard
+        span.menu-title Home
+    li.nav-item.menu-items
+      a.nav-link(href='/auth/admin/sign_out')
+        span.menu-icon.text-info
+          i.fas.fa-sign-out-alt
+        span.menu-title Logout

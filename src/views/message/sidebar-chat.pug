@@ -1,0 +1,27 @@
+.message
+  .container
+    .row.chat_list
+      //- <div class="chat_list">
+      //- Chat list title
+      .chat_list_title
+        .head_title
+          h5 Chats
+        .head_icon
+          a(href='')
+            i.fas.fa-search
+          a(href='/messages/new')
+            i.fas.fa-plus
+      //- Chat list options
+      .chat_list_options
+        a(href='')
+          button.open_button.active Done
+        a(href='')
+          button.open_button.unread_button(disabled='') Unread
+      //- Chat list friend
+      .chat_list_friends.scroll
+        .chats-container
+          .chat-list
+
+      .chat_list_help
+        a(href='') Help!
+        i.fas.fa-info

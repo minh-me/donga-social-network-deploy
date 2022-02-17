@@ -1,0 +1,13 @@
+mixin alertError(message)
+    .alert.alert-danger
+        span.message= message
+        i.fas.fa-times
+
+mixin alertSuccess(message)
+        .alert.alert-success
+            span.message= message
+            i.fas.fa-times
+
+mixin alertifySuccess(message)
+    .alert.alert-success.master-success-message.text-primary
+        span.message= message 

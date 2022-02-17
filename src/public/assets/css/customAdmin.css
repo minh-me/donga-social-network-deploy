@@ -1,0 +1,73 @@
+/* width */
+.table-responsive::-webkit-scrollbar {
+  height: 6px;
+}
+
+/* Track */
+.table-responsive::-webkit-scrollbar-track {
+  background: #15202b;
+  border-radius: 20px;
+}
+
+/* Handle */
+.table-responsive::-webkit-scrollbar-thumb {
+  background: #73899b;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #c5476f;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #f26d9f;
+}
+
+.text-primary {
+  color: #f91880 !important;
+}
+.modal-content {
+  background-color: #1a1c22 !important;
+}
+.modal-content .button-close {
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  margin-top: 10px;
+}
+
+.pagination span {
+  color: white;
+  float: left;
+  padding: 2px 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination span.active {
+  background-color: #4caf50;
+  color: white;
+  pointer-events: none;
+  border: 1px solid #4caf50;
+}
+
+.pagination span:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.pagination span:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination span:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

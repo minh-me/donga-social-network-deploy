@@ -1,0 +1,26 @@
+extends ../layouts/login-layout 
+block content 
+    a(href="/auth/login").switch
+        | Sign In
+    h1.title Đăng Ký
+
+    if errors.length > 0
+        each error in errors
+            +alertError(error)
+            
+    form#register.form(method="POST", action="/auth/register")
+        .input-group-row
+            //- class error fields: invalid
+            .input-group(class="")
+                label(for='firstname') First Name: 
+                input#firstname.input-field(type='text', value="", name='firstName', placeholder='Eg: minh')
+            .input-group(class="")
+                label(for='lastname') Last Name: 
+                input#lastname.input-field(type='text', value="", name='lastName', placeholder='Eg: chiu')
+        .input-group(class="")
+            label(for='email') 
+            input.input-field(type='email', name='email', value="",  emailregister='', placeholder='Eg: example@gmail.com')
+        .input-group(class="")
+            label(for='password')  
+            input#passwordRegister.input-field(type='password', value="", name='password', placeholder='Enter password')
+        button.submit-btn Register

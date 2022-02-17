@@ -1,0 +1,24 @@
+extends ../layouts/login-layout 
+block content 
+    a(href="/auth/register").switch
+        | Sign Up
+    h1.title Đăng nhập
+    if success.length > 0
+        +alertSuccess(success)
+
+    if errors.length > 0
+        each error in errors
+            +alertError(error)
+    form#login.form(method="POST", action="/auth/login")
+        .input-group(class="")
+            label(for='email')
+                // invalid message
+                span.message
+            input#emailLogin.input-field(type='text', name='email', value="", placeholder='Eg: example@gmail.com')
+
+        .input-group(class="")
+            label(for='password')
+                span.message
+            input#passwordLogin.input-field(type='password', name='password', value="", placeholder='Enter password')
+        a.forgot-password(href='/auth/forgot_password') Forgot your password?
+        button.submit-btn Login

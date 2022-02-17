@@ -1,0 +1,34 @@
+extends ./layouts/main-layout 
+block content
+
+  script.
+    var selectedTab= '!{selectedTab}';
+  
+  .search-box
+    input#searchInput(type='text', data-search=selectedTab, autofocus='',  placeholder='Enter name or post...')
+    button#searchButton(disabled)
+      i.fas.fa-search
+
+  .tabs-container 
+    +createTab('Users', `/search/users`, selectedTab == 'users')
+    +createTab('Posts', `/search/posts`, selectedTab != 'users')
+    
+  .lds-search
+    .dot-spin
+
+  .search_results 
+    .lds-search.hidden
+      .dot-spin
+    .users_container
+      .users
+    
+    .posts_container
+      .posts
+      
+  +createPostModal()
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/follow.js") 
+  script(src="/js/handlePost.js") 
+  script(src="/js/search.js") 
+  script(src="/js/selectTop.js")

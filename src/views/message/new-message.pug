@@ -1,0 +1,19 @@
+extends ../layouts/main-layout 
+block content
+  script. 
+  .chat__container 
+    .chat-title
+      label(for="userSearchTextBox") To: 
+      #selectedUsers 
+        span.selectedUsers
+        input#userSearchTextBox(type="text", placeholder="Type the name of the person")
+
+    .resultSearchChat.px-3
+      .users_container
+        .users 
+    button#createChatButton(disabled) Create chat
+
+block scripts
+  script(src="/js/common.js") 
+  script(src="/js/follow.js") 
+  script(src="/js/chat.js") 

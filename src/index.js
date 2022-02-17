@@ -21,7 +21,7 @@ const runningApp = () => {
   // Socket
   const io = new Server(server, {})
   io.on('connection', socket => {
-    logger.info('Connected to socket io.')
+    // logger.info('Connected to socket io.')
 
     // Setup
     socket.on('setup', user => {
